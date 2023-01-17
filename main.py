@@ -94,6 +94,9 @@ class PokeDex (toga.App):
 
     def load_async_data (self):
         self.data.clear()
+        self.image_view.image = None
+        self.pokemon_name.text = 'loading...'
+        self.pokemon_description.text = ''
         thread = threading.Thread(target=self.load_data)
         thread.start()
         thread.join()
